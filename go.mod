@@ -1,4 +1,4 @@
-module arrayPlay
+module github.com/mupersega/arrayPlay
 
 go 1.21.5
 

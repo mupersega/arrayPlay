@@ -12,16 +12,16 @@ type shape struct {
 	width  int
 }
 
-type matrix struct {
+type Matrix struct {
 	shape    shape
 	seedData [][]int
 	smoothed [][]int
 }
 
 func main() {
-	m := matrix{shape{10, 10}, nil, nil}
-	m.build()
-	m.smooth()
+	m := Matrix{shape{10, 10}, nil, nil}
+	m.Build()
+	m.Smooth()
 
 	display2DArray(m.seedData)
 	fmt.Println()
@@ -32,11 +32,11 @@ func main() {
 	}
 }
 
-func (m *matrix) build() {
+func (m *Matrix) Build() {
 	m.seedData = build2DArray(m.shape)
 }
 
-func (m *matrix) smooth() {
+func (m *Matrix) Smooth() {
 	m.smoothed = smooth2DArray(m.seedData, 1)
 }
 
@@ -84,7 +84,7 @@ func smooth2DArray(data [][]int, iterations int) [][]int {
 	return result
 }
 
-func display2DArray(data [][]int) {
+func Display2DArray(data [][]int) {
 	colorMap := buildColorMap(9, 15)
 	for k, v := range colorMap {
 		fmt.Printf("%d: %s\n", k, v)
